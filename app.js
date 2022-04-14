@@ -35,7 +35,6 @@ function handleButtons() {
         
         if (num1 !== "" && operator !== "") {
             equalsButtonClick();
-            return;
         }
         
         num1 = display.innerText;
