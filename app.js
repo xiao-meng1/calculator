@@ -24,11 +24,14 @@ function handleButtons() {
 
     function numberButtonClick(e) {
         display = document.querySelector("#display");
+        if (display.innerText === "SYNTAX ERROR") return;
+
         display.innerText += e.target.innerText;
     }
 
     function operatorButtonClick(e) {
         display = document.querySelector("#display");
+        if (display.innerText === "SYNTAX ERROR") return;
         
         if (num1 !== "" && operator !== "") {
             equalsButtonClick();
@@ -42,9 +45,12 @@ function handleButtons() {
 
     function equalsButtonClick() {
         display = document.querySelector("#display");
+        if (display.innerText === "SYNTAX ERROR") return;
+
         num2 = display.innerText.slice(num1.concat(operator).length);
+        if (num2 === "") return;
+
         const result = operate(operator, num1, num2);
-        
         display.innerText = (checkIsNumber(result) === true) ? result : "SYNTAX ERROR";
 
         num1 = "";
