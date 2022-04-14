@@ -47,6 +47,8 @@ function handleButtons() {
             equalsButtonClick();
         }
         
+        if (display.innerText === "SYNTAX ERROR") return;
+
         num1 = display.innerText;
         operator = e.target.innerText;
         display.innerText += e.target.innerText;
@@ -77,6 +79,8 @@ function handleButtons() {
 
     function deleteButtonClick() {
         display = document.querySelector("#display");
+        if (display.innerText === "SYNTAX ERROR") return;
+
         display.innerText = display.innerText.slice(0, -1);
         let operatorList = ["+", "-", "x", "%"];
         
