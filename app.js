@@ -20,6 +20,9 @@ function handleButtons() {
 
         const equalsButton = document.querySelector("#equals-button");
         equalsButton.addEventListener("click", equalsButtonClick);
+
+        const clearButton = document.querySelector("#clear-button");
+        clearButton.addEventListener("click", clearButtonClick);
     }
 
     function numberButtonClick(e) {
@@ -59,6 +62,14 @@ function handleButtons() {
         num1 = "";
         num2 = "";
         operator = "";
+    }
+
+    function clearButtonClick() {
+        display = document.querySelector("#display");
+        display.innerText = "";
+        let num1 = "";
+        let num2 = "";
+        let operator = "";
     }
 }
 
