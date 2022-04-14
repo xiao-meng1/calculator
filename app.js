@@ -50,7 +50,7 @@ function handleButtons() {
         if (num2 === "") return;
 
         const result = operate(operator, num1, num2);
-        display.innerText = (checkIsNumber(result) === true) ? result : "SYNTAX ERROR";
+        display.innerText = (checkIsNumber(result) === true) ? roundResult(result) : "SYNTAX ERROR";
 
         num1 = "";
         num2 = "";
@@ -80,6 +80,26 @@ function operate(operator, num1, num2) {
 function checkIsNumber(input) {
     if (isNaN(input)) return false;
     return (typeof Number(input) === "number") ? true : false;
+}
+
+function roundResult(result) {
+    result = result.toString();
+    if (result.length < 9) return result;
+
+    const decimalIndex = result.indexOf(".");
+    let multiplier = "1";
+    let roundedResult;
+
+    if (decimalIndex < 9 && decimalIndex > 0) {
+        for (let i = 0; i < (9 - decimalIndex); i++) {
+            multiplier += "0";
+        }
+        roundedResult = Math.round(result * multiplier) / multiplier;
+    } else {
+        roundedResult = Number(result).toExponential(4);
+    }
+    
+    return roundedResult;
 }
 
 function add(num1, num2) {
