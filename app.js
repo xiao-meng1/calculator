@@ -1,35 +1,32 @@
 handleButtons();
 
 function handleButtons() {
-    addButtonEvents();
-
     let num1 = "";
     let num2 = "";
     let operator = "";
 
+    const numberButtons = document.querySelectorAll(".number-button");
+    const operatorButton = document.querySelectorAll(".operator-button");
+    const equalsButton = document.querySelector("#equals-button");
+    const clearButton = document.querySelector("#clear-button");
+    const deleteButton = document.querySelector("#delete-button");
+    const display = document.querySelector("#display");
+
+    addButtonEvents();
+    
     function addButtonEvents() {
-        const numberButtons = document.querySelectorAll(".number-button");
         numberButtons.forEach((button) => {
             button.addEventListener("click", numberButtonClick);
         });
-
-        const operatorButton = document.querySelectorAll(".operator-button");
         operatorButton.forEach((button) => {
             button.addEventListener("click", operatorButtonClick);
         });
-
-        const equalsButton = document.querySelector("#equals-button");
         equalsButton.addEventListener("click", equalsButtonClick);
-
-        const clearButton = document.querySelector("#clear-button");
         clearButton.addEventListener("click", clearButtonClick);
-
-        const deleteButton = document.querySelector("#delete-button");
         deleteButton.addEventListener("click", deleteButtonClick);
     }
 
     function numberButtonClick(e) {
-        display = document.querySelector("#display");
         if (display.innerText === "SYNTAX ERROR") return;
         
         if (e.target.innerText === "(-)") {
@@ -40,7 +37,6 @@ function handleButtons() {
     }
 
     function operatorButtonClick(e) {
-        display = document.querySelector("#display");
         if (display.innerText === "SYNTAX ERROR") return;
         
         if (num1 !== "" && operator !== "") {
@@ -55,7 +51,6 @@ function handleButtons() {
     }
 
     function equalsButtonClick() {
-        display = document.querySelector("#display");
         if (display.innerText === "SYNTAX ERROR") return;
 
         num2 = display.innerText.slice(num1.concat(operator).length);
@@ -70,7 +65,6 @@ function handleButtons() {
     }
 
     function clearButtonClick() {
-        display = document.querySelector("#display");
         display.innerText = "";
         let num1 = "";
         let num2 = "";
@@ -78,7 +72,6 @@ function handleButtons() {
     }
 
     function deleteButtonClick() {
-        display = document.querySelector("#display");
         if (display.innerText === "SYNTAX ERROR") return;
 
         display.innerText = display.innerText.slice(0, -1);
