@@ -62,7 +62,7 @@ body {
     background-color: #97c1a9;
 }
 
-.operator-button {
+.operator-button, #equals-button {
     display: flex;
     justify-content: center;
     align-items: center;
