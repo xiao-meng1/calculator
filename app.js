@@ -25,8 +25,12 @@ function handleButtons() {
     function numberButtonClick(e) {
         display = document.querySelector("#display");
         if (display.innerText === "SYNTAX ERROR") return;
-
-        display.innerText += e.target.innerText;
+        
+        if (e.target.innerText === "(-)") {
+            display.innerText += "-";
+        } else {
+            display.innerText += e.target.innerText;
+        }
     }
 
     function operatorButtonClick(e) {
