@@ -23,6 +23,9 @@ function handleButtons() {
 
         const clearButton = document.querySelector("#clear-button");
         clearButton.addEventListener("click", clearButtonClick);
+
+        const deleteButton = document.querySelector("#delete-button");
+        deleteButton.addEventListener("click", deleteButtonClick);
     }
 
     function numberButtonClick(e) {
@@ -70,6 +73,19 @@ function handleButtons() {
         let num1 = "";
         let num2 = "";
         let operator = "";
+    }
+
+    function deleteButtonClick() {
+        display = document.querySelector("#display");
+        display.innerText = display.innerText.slice(0, -1);
+        let operatorList = ["+", "-", "x", "%"];
+        
+        if (operatorList.includes(display.innerText.slice(-1))) {
+            operator = display.innerText.slice(-1);
+            console.log(true)
+        } else {
+            operator = "";
+        }
     }
 }
 
