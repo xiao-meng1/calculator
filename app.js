@@ -30,11 +30,11 @@ function handleButtons() {
     function operatorButtonClick(e) {
         display = document.querySelector("#display");
         
-        if (operator !== "") {
+        if (num1 !== "" && operator !== "") {
             equalsButtonClick();
             return;
         }
-
+        
         num1 = display.innerText;
         operator = e.target.innerText;
         display.innerText += e.target.innerText;
@@ -50,7 +50,6 @@ function handleButtons() {
         operator = "";
     }
 }
-
 
 function operate(operator, num1, num2) {
     let result;
@@ -68,7 +67,12 @@ function operate(operator, num1, num2) {
             result = divide(num1, num2);
             break;
     }
-    return result;
+    return checkIsNumber(result) ? result : "SYNTAX ERROR";
+}
+
+function checkIsNumber(input) {
+    if (isNaN(input)) return false;
+    return (typeof Number(input) === "number") ? true : false;
 }
 
 function add(num1, num2) {
