@@ -43,7 +43,9 @@ function handleButtons() {
     function equalsButtonClick() {
         display = document.querySelector("#display");
         num2 = display.innerText.slice(num1.concat(operator).length);
-        display.innerText = operate(operator, num1, num2);
+        const result = operate(operator, num1, num2);
+        
+        display.innerText = (checkIsNumber(result) === true) ? result : "SYNTAX ERROR";
 
         num1 = "";
         num2 = "";
@@ -67,7 +69,7 @@ function operate(operator, num1, num2) {
             result = divide(num1, num2);
             break;
     }
-    return checkIsNumber(result) ? result : "SYNTAX ERROR";
+    return result;
 }
 
 function checkIsNumber(input) {
