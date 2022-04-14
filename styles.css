@@ -1,0 +1,87 @@
+@font-face {
+    font-family: OPTICalculator;
+    src: url("OPTICalculator/OPTICalculator.otf") format("opentype");
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    font-size: 30px;
+}
+ 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #daeaf6
+}
+
+#calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 600px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: #ecd5e3;
+    box-shadow: 10px 6px 4px #a2e1db;
+}
+
+#display {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100px;
+    width: 380px;
+    border: solid #fcf4dd 20px;
+    border-radius: 10px;
+    background-color: #fcf4dd;
+    font-family: OPTICalculator;
+    font-size: 50px;
+}
+
+.row-container {
+    display: flex;
+    justify-content:space-evenly;
+    width: 400px;
+}
+
+.operation-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 140px;
+    border-radius: 10px;
+    background-color: #97c1a9;
+}
+
+.operator-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 10px;
+    background-color: #abdee6;
+}
+
+.number-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 10px;
+    background-color: #ffc09f;
+}
+
+#equals-button {
+    background-color: #ff96ba;
+}
