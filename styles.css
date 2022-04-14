@@ -37,6 +37,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: center;
+    white-space: nowrap;
     height: 100px;
     width: 380px;
     border: solid #fcf4dd 20px;
@@ -44,6 +45,7 @@ body {
     background-color: #fcf4dd;
     font-family: OPTICalculator;
     font-size: 50px;
+    overflow: hidden;
 }
 
 .row-container {
